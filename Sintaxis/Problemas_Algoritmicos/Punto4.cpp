@@ -6,7 +6,6 @@
 //Protipos de funciones:
 void end();
 
-
 main()
 {
 	char palabra[70],palabra_inv[70];
