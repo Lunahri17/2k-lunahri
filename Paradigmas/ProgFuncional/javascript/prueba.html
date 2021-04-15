@@ -1,0 +1,91 @@
+<h1>Hola</h1>
+<script>
+    document.write("mundo");
+    console.log("Hola!!!");
+
+    function suma(a,b){
+        return a + b;
+    }
+
+    var a = 10;
+    function fimpura(x){
+        a++;
+        return a + x;
+    }
+
+    //Factorial Imperativo:
+    function fac(n){
+        var total = 1;
+
+        for (var i=1; i<=n; i++){
+            total = total * i;
+        }
+        return total;
+    }
+
+    //Factorial recursivo:
+    function facrec(num){
+        if (num==0) return 1;
+        return num * facrec(num-1);
+    }
+
+    var v1 = x => x+1;
+    var v2 = (x => x * x)(4);
+
+    //listas o arrays:
+    var lista = [1,2,3,4];
+    var lista2 = lista.map(x => x * x * x);
+    var lista3 = lista.filter( x => x % 2 == 0);
+    var lista4 = lista.filter( x => x % 2 == 0).map(x => x * x * x);
+
+    //manejo de listas:
+    function head(xs){
+        return xs[0];
+    }
+
+    function tail(xs){
+        return xs.slice(1);
+    }
+
+    //programar un filter
+    function filtrarPares(xs){
+        if (!xs.length) return [];
+        else if (head(xs)%2 == 0) return [head(xs),filtrarPares(tail(xs))];
+        else return filtrarPares(tail(xs));
+    }
+
+    function sumarLista(xs){
+        if(!xs.length) return 0;
+        else return head(xs) + sumarLista(tail(xs));
+    }
+
+    function contarLista(xs){
+        if(!xs.length) return 0;
+        else return 1 + contarLista(tail(xs));
+    }
+
+    document.write("<br> suma: " + suma(3,4));
+    document.write("<br> suma: " + fimpura(3));
+    document.write("<br> fac imperativo: " + fac(4));
+    document.write("<br> fac recursivo: " + facrec(4));
+    document.write("<br> v1(10): " + v1(10));
+    document.write("<br> ej exp lambda: " + v2);
+    document.write("<br> Lista: " + lista);
+    document.write("<br> Lista2: " + lista2);
+    document.write("<br> Lista3: " + lista3);
+    document.write("<br> Lista4: " + lista4);
+    document.write("<br> Head: " + head(lista));
+    document.write("<br> Tail: " + tail(lista));
+    document.write("<br> Filtrar Pares: " + filtrarPares(lista));
+    document.write("<br> Sumar Lista: " + sumarLista(lista));
+    document.write("<br> Contar Lista: " + contarLista(lista));
+
+    //imperativo
+    for (var i = 0; i < lista.length; i++){
+        document.write("<br> Elemento: " + lista[i]);
+    }
+
+    //con una expresion lambda.
+    lista.forEach(elemento => {document.write("<br> *Elemento: " + elemento)});
+
+</script>
