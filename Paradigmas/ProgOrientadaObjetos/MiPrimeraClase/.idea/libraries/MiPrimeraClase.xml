@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MiPrimeraClase">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/MiPrimeraClase.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

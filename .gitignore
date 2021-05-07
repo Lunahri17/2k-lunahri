@@ -41,3 +41,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/Paradigmas/ProgOrientadaObjetos/MiPrimeraClase/nbproject/private/
+/Paradigmas/ProgOrientadaObjetos/MiPrimeraClase/build/
+/Paradigmas/ProgOrientadaObjetos/MiPrimeraClase/dist/
