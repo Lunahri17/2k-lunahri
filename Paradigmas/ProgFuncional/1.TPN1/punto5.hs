@@ -24,3 +24,8 @@ ultimo x = mod x 10
 -- g) dado tres números que representan longitudes indicar si pueden formar un triangulo
 triangulo x y z = if (x < (y + z)) && (y < (x + z)) && (z < (x + y)) then "Es triangulo" else "No es triangulo"
 
+-- h) Semaforo:
+semaforo x
+    | x == "rojo" = "No avanzar"
+    | x == "amarillo" = "No avanzar"
+    | x == "verde" = "avanzar"
