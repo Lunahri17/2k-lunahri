@@ -6,8 +6,7 @@ anio x = mod x 10000
 
 -- b) Averiguar si un alumno aprobó el parcial (Ap <= 6):
 resultado x 
-    | x > 6 = "Promocionado"
-    | x == 6 = "Aprobado"
+    | x > 5 = "Aprobado"
     | otherwise = "Desaprobado"
 
 -- c) Promedio de 3 numeros:
