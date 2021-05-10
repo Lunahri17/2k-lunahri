@@ -9,3 +9,6 @@ resultado x
     | x > 6 = "Promocionado"
     | x == 6 = "Aprobado"
     | otherwise = "Desaprobado"
+
+-- c) Promedio de 3 numeros:
+promedio x y z = (x + y + z) / 3
