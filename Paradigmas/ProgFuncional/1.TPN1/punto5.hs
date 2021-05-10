@@ -13,3 +13,4 @@ resultado x
 promedio x y z = (x + y + z) / 3
 
 -- d) Volumen de una esfera:
+volumen x =  (4 * (3.14) * x * x * x) / 3
