@@ -9,10 +9,11 @@ resultado x
     | x > 5 = "Aprobado"
     | otherwise = "Desaprobado"
 
--- c) Promedio de 3 numeros:
+-- c) Promedio de 3 números:
 promedio x y z = (x + y + z) / 3
 
 -- d) Volumen de una esfera:
 volumen x =  (4 * pi * x * x * x) / 3
 
--- e)
+-- e) Área de un circulo:
+area x = pi * x * x
