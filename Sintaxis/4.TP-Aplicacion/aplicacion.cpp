@@ -30,7 +30,7 @@ void end();
 int cargarDatos(libro regLibros[200]);
 bool comprobarISBN(libro regLibros[200],int numLibros,double isbn);
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn);
-char cargarTitulo();
+void cargarTitulo(char *titulo);
 
 //Variables globales:
 
@@ -66,7 +66,7 @@ main()
 	end();
 }
 
-int cargarDatos(libro regLibros[200]){
+int cargarDatos(libro regLibros[200]) {
 	FILE *arch;
     int i = 0;
     
@@ -92,7 +92,7 @@ int cargarDatos(libro regLibros[200]){
     }
 }
 
-bool comprobarISBN(libro regLibros[200],int numLibros,double isbn){
+bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
 	bool esta;
 
 	do {
@@ -113,16 +113,16 @@ bool comprobarISBN(libro regLibros[200],int numLibros,double isbn){
 	return esta;
 }
 
-void cargarRegistro(libro regLibros[200],int numLibros,double isbn){
+void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
+	char titulo[41];
 
 	regLibros[numLibros].isbn = isbn;
-	regLibros[numLibros].tituloObra = cargarTitulo();
+	cargarTitulo(titulo);
+	strcpy(regLibros[numLibros].tituloObra,titulo);
 	
 }
 
-char cargarTitulo(){
-	char titulo[41];
-
+void cargarTitulo(char *titulo) {
 	do
 	{
 		printf("\nIngrese un titulo: ");
@@ -132,8 +132,6 @@ char cargarTitulo(){
 			printf("\nEl nombre del titulo debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo");
 		}
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
-	
-	return titulo;
 }
 
 void end()
