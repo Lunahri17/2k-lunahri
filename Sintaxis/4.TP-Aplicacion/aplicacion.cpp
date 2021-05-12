@@ -125,7 +125,7 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	strcpy(regLibros[numLibros].tituloObra,charAux);
 	cargarApeNom(apeNom);
 	strcpy(regLibros[numLibros].apeNom,apeNom);
-	cargarApeNom(charAux);
+	cargarEditorial(charAux);
 	strcpy(regLibros[numLibros].nomEditorial,charAux);
 
 }
@@ -204,12 +204,12 @@ void cargarEditorial(char Editorial[41]) {
 	{
 		printf("\nIngrese el Nombre de la Editorial: ");
 		_flushall;
-		gets(titulo);
-		if (strlen(titulo) > 40 or strlen(titulo) == 0)
+		gets(Editorial);
+		if (strlen(Editorial) > 40 or strlen(Editorial) == 0)
 		{
 			printf("\nEl Nombre de la Editorial debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo");
 		}
-	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
+	} while (strlen(Editorial) > 40 or strlen(Editorial) == 0);
 }
 
 void end()
