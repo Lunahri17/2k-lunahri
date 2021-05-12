@@ -53,7 +53,8 @@ main()
 
 	if (numLibros != -1)
 	{
-		printf("\n\t---Alta sobre datos de libros---")
+		printf("\n\t---Alta sobre datos de libros---\n");
+
 		do
 		{
 			printf("\nIngrese el ISBN: ");
@@ -63,7 +64,7 @@ main()
 					stop = true;
 				}
 			} else {
-				printf("\nIngresó un ISBN incorrecto, vuelva a intentarlo");
+				printf("\nIngreso un ISBN incorrecto, vuelva a intentarlo");
 			}
 		} while (!stop);
 		
