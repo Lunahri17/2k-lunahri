@@ -121,22 +121,28 @@ bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	char charAux[41],apeNom[31];
 	fecha fechaAux;
-	//float floatAux;
 
 	regLibros[numLibros].isbn = isbn;
+	
 	cargarTitulo(charAux);
 	strcpy(regLibros[numLibros].tituloObra,charAux);
+	
 	cargarApeNom(apeNom);
 	strcpy(regLibros[numLibros].apeNom,apeNom);
+	
 	cargarEditorial(charAux);
 	strcpy(regLibros[numLibros].nomEditorial,charAux);
+	
 	cargarFecha(fechaAux);
+	
 	regLibros[numLibros].fechaPublicacion = fechaAux;
+	
 	regLibros[numLibros].precio = cargarPrecio();
 
 }
 
 void cargarTitulo(char titulo[41]) {
+	
 	do
 	{
 		printf("\nIngrese un titulo: ");
@@ -146,6 +152,7 @@ void cargarTitulo(char titulo[41]) {
 		{
 			printf("\nEl nombre del titulo debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo");
 		}
+		system("cls");
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
 }
 
@@ -182,20 +189,16 @@ bool verificarCaracteres(char apeNom[31]) {
 		if (i == 0) {
 			if (apeNom[i]>='A' and apeNom[i]<='Z')
 			{
-				printf("\nentra a comparar la primer letra");
 				esValido = true;
 			}
 		}
 		
 		if (apeNom[i]==' ')
 		{
-			printf("\nEntra al bucle del espacio");
 			if (apeNom[i+1]>='A' and apeNom[i+1]<='Z')
 			{
-				printf("\nEntra al bucle de la mayusculas");
 				esValido = true;
 			} else {
-				printf("\nEntro al else");
 				esValido = false;
 				break;
 			}
