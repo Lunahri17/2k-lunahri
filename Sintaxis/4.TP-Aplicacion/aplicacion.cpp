@@ -36,6 +36,7 @@ bool verificarCaracteres(char apeNom[31]);
 void cargarEditorial(char Editorial[41]);
 void cargarFecha(fecha fechaAux);
 float cargarPrecio();
+int cargarCantidad();
 
 //Variables globales:
 
@@ -139,6 +140,7 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	
 	regLibros[numLibros].precio = cargarPrecio();
 
+	regLibros[numLibros].cantidad = cargarCantidad();
 }
 
 void cargarTitulo(char titulo[41]) {
@@ -271,7 +273,27 @@ float cargarPrecio() {
 	return aux;
 }
 
+int cargarCantidad() {
+	int aux;
+	bool stop = false;
 
+	do
+	{
+		printf("\nIngrese la cantidad de libros:");
+		scanf("%d",&aux);
+		
+		if (aux > 0 and aux <= 9999)
+		{
+			stop = true;
+		}
+		else
+		{
+			printf("\nIngreso una cantidad no valida. Vuelva a intentarlo.");
+		}
+	} while (!stop);
+
+	return aux;
+}
 
 
 
