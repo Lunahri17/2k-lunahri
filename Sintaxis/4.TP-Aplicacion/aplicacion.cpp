@@ -37,6 +37,7 @@ void cargarEditorial(char Editorial[41]);
 void cargarFecha(fecha fechaAux);
 float cargarPrecio();
 int cargarCantidad();
+void guardarArchivo(libro regLibros[200],int numLibros);
 
 //Variables globales:
 
@@ -66,6 +67,9 @@ main()
 		} while (!stop);
 		
 		cargarRegistro(regLibros,numLibros,isbn);
+
+		guardarArchivo(regLibros,numLibros);
+		printf("\nSu libro fue guardado con exito.");
 	}
 	
 	
@@ -76,7 +80,7 @@ int cargarDatos(libro regLibros[200]) {
 	FILE *arch;
     int i = 0;
     
-    arch=fopen("Libros.dat","a+");
+    arch=fopen("Libros.dat","a+b");
 
     if (arch==NULL)
     {
@@ -298,7 +302,16 @@ int cargarCantidad() {
 	return aux;
 }
 
+void guardarArchivo(libro regLibros[200],int numLibros)
+{
+    FILE *arch;
+    arch =  fopen("Libros.dat","w+b");
 
+    for (int i = 0; i < num_turnos; i++)
+    {
+        fwrite(&regLibros[i],sizeof(libro),1,arch);
+    }
+}
 
 void end()
 {
