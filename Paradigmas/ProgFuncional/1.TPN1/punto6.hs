@@ -15,3 +15,12 @@ verificaElem x (y:ys) | x == y = True
 --- d) Eliminar elementos repetidos de una lista
 eliminaRep [] = []
 eliminaRep (x:xs) = x : eliminaRep (filter (/= x) xs)
+
+--- e) Unir dos listas de cadenas de cadena (incluidos repetidos)
+unirLista [] ys = ys
+unirLista xs [] = xs
+unirLista (x:xs) ys 
+    |verificaElem x ys = unirLista xs ys
+    |otherwise = [x] ++ unirLista xs ys
+
+--- f) Igual a apartado e) pero sin repetidos
