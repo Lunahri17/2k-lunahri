@@ -152,12 +152,12 @@ void cargarApeNom(char *apeNom) {
 		if (strlen(apeNom) > 30 or strlen(apeNom) == 0)
 		{
 			printf("\nEl Apellido y Nombre debe ser menor o igual a 30 caracteres, y no nulo. Vuelva a intentarlo");
-			stop = false
+			stop = false;
 		}
 		if (!verificarCaracteres(apeNom))
 		{
 			printf("\nCada cadena del Apellido y Nombre debe empezar con una mayuscula. Vuelva a intentarlo");
-			stop = false
+			stop = false;
 		}
 		
 	} while (!stop);
