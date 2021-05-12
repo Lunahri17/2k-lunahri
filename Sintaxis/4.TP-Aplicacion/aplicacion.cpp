@@ -144,9 +144,10 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 }
 
 void cargarTitulo(char titulo[41]) {
-	
+	int i = 0;
 	do
 	{
+		i++;
 		printf("\nIngrese un titulo: ");
 		_flushall;
 		gets(titulo);
@@ -154,7 +155,9 @@ void cargarTitulo(char titulo[41]) {
 		{
 			printf("\nEl nombre del titulo debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo");
 		}
-		system("cls");
+		if (i==1){
+			system("cls");
+		}
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
 }
 
