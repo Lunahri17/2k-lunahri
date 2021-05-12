@@ -29,7 +29,7 @@ struct libro
 void end();
 int cargarDatos(libro regLibros[200]);
 bool comprobarISBN(libro regLibros[200],int numLibros,double isbn);
-void cargarRegistro(libro regLibros[200],int numLibros,double isbn);
+void cargarRegistro(libro regLibros[200],int &numLibros,double isbn);
 void cargarTitulo(char titulo[41]);
 void cargarApeNom(char apeNom[31]);
 bool verificarCaracteres(char apeNom[31]);
@@ -53,6 +53,7 @@ main()
 
 	if (numLibros != -1)
 	{
+		printf("\n\t---Alta sobre datos de libros---")
 		do
 		{
 			printf("\nIngrese el ISBN: ");
@@ -71,8 +72,7 @@ main()
 		guardarArchivo(regLibros,numLibros);
 		printf("\nSu libro fue guardado con exito.");
 	}
-	
-	
+
 	end();
 }
 
@@ -103,27 +103,23 @@ int cargarDatos(libro regLibros[200]) {
 }
 
 bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
-	bool esta;
+	bool esta = false;
 
-	do {
-		esta = false;
-
-		for (int i = 0; i < numLibros; i++) {
-			if (regLibros[i].isbn == isbn) {
-				esta = true;
-				break;
-			}
+	for (int i = 0; i < numLibros; i++) {
+		if (regLibros[i].isbn == isbn) {
+			esta = true;
+			break;
 		}
+	}
 
-		if (esta) {
-			printf("\nYa existe el ISBN que ingreso, vuelva a intentarlo.");
-		}
-	} while (esta);
+	if (esta) {
+		printf("\nYa existe el ISBN que ingreso, vuelva a intentarlo.");
+	}
 
 	return esta;
 }
 
-void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
+void cargarRegistro(libro regLibros[200],int &numLibros,double isbn) {
 	char charAux[41],apeNom[31];
 	fecha fechaAux;
 
@@ -145,6 +141,8 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	regLibros[numLibros].precio = cargarPrecio();
 
 	regLibros[numLibros].cantidad = cargarCantidad();
+
+	numLibros++;
 }
 
 void cargarTitulo(char titulo[41]) {
@@ -307,10 +305,12 @@ void guardarArchivo(libro regLibros[200],int numLibros)
     FILE *arch;
     arch =  fopen("Libros.dat","w+b");
 
-    for (int i = 0; i < num_turnos; i++)
+    for (int i = 0; i < numLibros; i++)
     {
+
         fwrite(&regLibros[i],sizeof(libro),1,arch);
     }
+	fclose(arch);
 }
 
 void end()
