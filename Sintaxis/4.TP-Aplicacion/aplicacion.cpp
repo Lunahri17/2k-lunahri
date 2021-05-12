@@ -31,8 +31,8 @@ int cargarDatos(libro regLibros[200]);
 bool comprobarISBN(libro regLibros[200],int numLibros,double isbn);
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn);
 void cargarTitulo(char *titulo);
-void cargarApeNom(char *apeNom);
-bool verificarCaracteres(char *apeNom);
+void cargarApeNom(char apeNom[31]);
+bool verificarCaracteres(char apeNom[31]);
 
 
 //Variables globales:
@@ -130,8 +130,8 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 void cargarTitulo(char *titulo) {
 	do
 	{
-		_flushall;
 		printf("\nIngrese un titulo: ");
+		_flushall;
 		gets(titulo);
 		if (strlen(titulo) > 40 or strlen(titulo) == 0)
 		{
@@ -140,15 +140,15 @@ void cargarTitulo(char *titulo) {
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
 }
 
-void cargarApeNom(char *apeNom) {
+void cargarApeNom(char apeNom[31]) {
 	bool stop;
 
 	do
 	{
 		stop = true;
 	
-		_flushall;
 		printf("\nIngrese un Apellido y Nombre: ");
+		_flushall;
 		gets(apeNom);
 
 		if (strlen(apeNom) > 30 or strlen(apeNom) == 0)
@@ -156,7 +156,7 @@ void cargarApeNom(char *apeNom) {
 			printf("\nEl Apellido y Nombre debe ser menor o igual a 30 caracteres, y no nulo. Vuelva a intentarlo");
 			stop = false;
 		}
-		if (!verificarCaracteres(apeNom))
+		if (verificarCaracteres(apeNom) == false)
 		{
 			printf("\nCada cadena del Apellido y Nombre debe empezar con una mayuscula. Vuelva a intentarlo");
 			stop = false;
@@ -165,20 +165,32 @@ void cargarApeNom(char *apeNom) {
 	} while (!stop);
 }
 
-bool verificarCaracteres(char *apeNom) {
+bool verificarCaracteres(char apeNom[31]) {
 	bool esValido = false;
 
 	for (int i = 0; i < strlen(apeNom); i++)
-	{
-		if (i==0 and apeNom[i]>='A' and apeNom[i]<='Z')
-		{
-			esValido = true;
+	{	
+		if (i == 0) {
+			if (apeNom[i]>='A' and apeNom[i]<='Z')
+			{
+				printf("\nentra a comparar la primer letra");
+				esValido = true;
+			}
 		}
 		
-		if ( !( apeNom[i]==32 and (apeNom[i+1]>64 and apeNom[i+1]<91) ) )
+		if (apeNom[i]==' ')
 		{
-			esValido = false;
-		}
+			printf("\nEntra al bucle del espacio");
+			if (apeNom[i+1]>='A' and apeNom[i+1]<='Z')
+			{
+				printf("\nEntra al bucle de la mayusculas");
+				esValido = true;
+			} else {
+				printf("\nEntro al else");
+				esValido = false;
+				break;
+			}
+		} 
 	}
 	
 	return esValido;
