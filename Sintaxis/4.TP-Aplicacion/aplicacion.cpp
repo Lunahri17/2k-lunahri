@@ -31,6 +31,9 @@ int cargarDatos(libro regLibros[200]);
 bool comprobarISBN(libro regLibros[200],int numLibros,double isbn);
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn);
 void cargarTitulo(char *titulo);
+void cargarApeNom(char *apeNom);
+bool verificarCaracteres(char *apeNom);
+
 
 //Variables globales:
 
@@ -114,11 +117,13 @@ bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
 }
 
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
-	char titulo[41];
+	char charAux[41],apeNom[31];
 
 	regLibros[numLibros].isbn = isbn;
-	cargarTitulo(titulo);
-	strcpy(regLibros[numLibros].tituloObra,titulo);
+	cargarTitulo(charAux);
+	strcpy(regLibros[numLibros].tituloObra,charAux);
+	cargarApeNom(apeNom);
+	strcpy(regLibros[numLibros].apeNom,apeNom);
 	
 }
 
@@ -133,6 +138,50 @@ void cargarTitulo(char *titulo) {
 		}
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
 }
+
+void cargarApeNom(char *apeNom) {
+	bool stop;
+
+	do
+	{
+		stop = true;
+
+		printf("\nIngrese un Apellido y Nombre: ");
+		gets(apeNom);
+
+		if (strlen(apeNom) > 30 or strlen(apeNom) == 0)
+		{
+			printf("\nEl Apellido y Nombre debe ser menor o igual a 30 caracteres, y no nulo. Vuelva a intentarlo");
+			stop = false
+		}
+		if (verificarCaracteres(apeNom))
+		{
+			
+		}
+		
+	} while (!stop);
+}
+
+bool verificarCaracteres(char *apeNom) {
+	bool esValido = false;
+
+	for (int i = 0; i < strlen(apeNom); i++)
+	{
+		if (i==0 and apeNom[0]>64 and apeNom[0]<91)
+		{
+			esValido = true;
+		}
+		
+		if ( !( apeNom[i]==32 and (apeNom[i+1]>64 and apeNom[i+1]<91) ) )
+		{
+			esValido = false;
+		}
+	}
+	
+	return esValido;
+}
+
+
 
 void end()
 {
