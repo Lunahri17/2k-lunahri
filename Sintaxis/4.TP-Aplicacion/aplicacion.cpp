@@ -130,6 +130,7 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 void cargarTitulo(char *titulo) {
 	do
 	{
+		_flushall;
 		printf("\nIngrese un titulo: ");
 		gets(titulo);
 		if (strlen(titulo) > 40 or strlen(titulo) == 0)
@@ -145,7 +146,8 @@ void cargarApeNom(char *apeNom) {
 	do
 	{
 		stop = true;
-
+	
+		_flushall;
 		printf("\nIngrese un Apellido y Nombre: ");
 		gets(apeNom);
 
@@ -168,7 +170,7 @@ bool verificarCaracteres(char *apeNom) {
 
 	for (int i = 0; i < strlen(apeNom); i++)
 	{
-		if (i==0 and apeNom[0]>64 and apeNom[0]<91)
+		if (i==0 and apeNom[i]>='A' and apeNom[i]<='Z')
 		{
 			esValido = true;
 		}
