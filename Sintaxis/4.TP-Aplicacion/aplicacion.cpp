@@ -34,6 +34,7 @@ void cargarTitulo(char titulo[41]);
 void cargarApeNom(char apeNom[31]);
 bool verificarCaracteres(char apeNom[31]);
 void cargarEditorial(char Editorial[41]);
+void cargarFecha(fecha fechaAux);
 
 
 //Variables globales:
@@ -119,6 +120,7 @@ bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
 
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	char charAux[41],apeNom[31];
+	fecha fechaAux;
 
 	regLibros[numLibros].isbn = isbn;
 	cargarTitulo(charAux);
@@ -127,6 +129,8 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	strcpy(regLibros[numLibros].apeNom,apeNom);
 	cargarEditorial(charAux);
 	strcpy(regLibros[numLibros].nomEditorial,charAux);
+	cargarFecha(fechaAux);
+	regLibros.fechaPublicacion = fechaAux;
 
 }
 
@@ -211,6 +215,38 @@ void cargarEditorial(char Editorial[41]) {
 		}
 	} while (strlen(Editorial) > 40 or strlen(Editorial) == 0);
 }
+
+void cargarFecha(fecha fechaAux) {
+	do
+	{
+		printf("\nIngrese la fecha de publicación:");
+		printf("\nDia: ");
+		scanf("%d",fechaAux.dia);
+		printf("\nMes: ");
+		scanf("%d",fechaAux.mes);
+		printf("\nAnio: ");
+		scanf("%d",fechaAux.anio);
+
+		if (fechaAux.dia >= 1 and fechaAux.dia <= 30)
+		{
+			if (fechaAux.mes >= 1 and fechaAux.mes <= 12)
+			{
+				stop = true;
+			}
+		}
+		else
+		{
+			printf("\nIngreso una fecha no valida. Vuelva a intentarlo.");
+		}
+	} while (!stop);
+	
+}
+
+
+
+
+
+
 
 void end()
 {
