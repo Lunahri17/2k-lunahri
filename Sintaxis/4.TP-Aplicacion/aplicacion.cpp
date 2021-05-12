@@ -35,7 +35,7 @@ void cargarApeNom(char apeNom[31]);
 bool verificarCaracteres(char apeNom[31]);
 void cargarEditorial(char Editorial[41]);
 void cargarFecha(fecha fechaAux);
-
+float cargarPrecio();
 
 //Variables globales:
 
@@ -121,6 +121,7 @@ bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	char charAux[41],apeNom[31];
 	fecha fechaAux;
+	//float floatAux;
 
 	regLibros[numLibros].isbn = isbn;
 	cargarTitulo(charAux);
@@ -130,7 +131,8 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	cargarEditorial(charAux);
 	strcpy(regLibros[numLibros].nomEditorial,charAux);
 	cargarFecha(fechaAux);
-	regLibros.fechaPublicacion = fechaAux;
+	regLibros[numLibros].fechaPublicacion = fechaAux;
+	regLibros[numLibros].precio = cargarPrecio();
 
 }
 
@@ -217,15 +219,17 @@ void cargarEditorial(char Editorial[41]) {
 }
 
 void cargarFecha(fecha fechaAux) {
+	bool stop = false;
+
 	do
 	{
 		printf("\nIngrese la fecha de publicación:");
 		printf("\nDia: ");
-		scanf("%d",fechaAux.dia);
+		scanf("%d",&fechaAux.dia);
 		printf("\nMes: ");
-		scanf("%d",fechaAux.mes);
+		scanf("%d",&fechaAux.mes);
 		printf("\nAnio: ");
-		scanf("%d",fechaAux.anio);
+		scanf("%d",&fechaAux.anio);
 
 		if (fechaAux.dia >= 1 and fechaAux.dia <= 30)
 		{
@@ -239,10 +243,29 @@ void cargarFecha(fecha fechaAux) {
 			printf("\nIngreso una fecha no valida. Vuelva a intentarlo.");
 		}
 	} while (!stop);
-	
 }
 
+float cargarPrecio() { 
+	float aux;
+	bool stop = false;
 
+	do
+	{
+		printf("\nIngrese el precio:");
+		scanf("%5.2f",&aux);
+		
+		if (aux >= 0.01 and aux <= 99999.99)
+		{
+			stop = true;
+		}
+		else
+		{
+			printf("\nIngreso una fecha no valida. Vuelva a intentarlo.");
+		}
+	} while (!stop);
+
+	return aux;
+}
 
 
 
