@@ -238,7 +238,8 @@ void cargarFecha(fecha fechaAux) {
 				stop = true;
 			}
 		}
-		else
+		
+		if (!stop)
 		{
 			printf("\nIngreso una fecha no valida. Vuelva a intentarlo.");
 		}
@@ -252,15 +253,15 @@ float cargarPrecio() {
 	do
 	{
 		printf("\nIngrese el precio:");
-		scanf("%5.2f",&aux);
+		scanf("%f",&aux);
 		
-		if (aux >= 0.01 and aux <= 99999.99)
+		if (aux > 0 and aux <= 99999.99)
 		{
 			stop = true;
 		}
 		else
 		{
-			printf("\nIngreso una fecha no valida. Vuelva a intentarlo.");
+			printf("\nIngreso un precio no valido. Vuelva a intentarlo.");
 		}
 	} while (!stop);
 
