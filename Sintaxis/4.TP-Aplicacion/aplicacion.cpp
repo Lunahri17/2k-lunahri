@@ -30,9 +30,10 @@ void end();
 int cargarDatos(libro regLibros[200]);
 bool comprobarISBN(libro regLibros[200],int numLibros,double isbn);
 void cargarRegistro(libro regLibros[200],int numLibros,double isbn);
-void cargarTitulo(char *titulo);
+void cargarTitulo(char titulo[41]);
 void cargarApeNom(char apeNom[31]);
 bool verificarCaracteres(char apeNom[31]);
+void cargarEditorial(char Editorial[41]);
 
 
 //Variables globales:
@@ -124,10 +125,12 @@ void cargarRegistro(libro regLibros[200],int numLibros,double isbn) {
 	strcpy(regLibros[numLibros].tituloObra,charAux);
 	cargarApeNom(apeNom);
 	strcpy(regLibros[numLibros].apeNom,apeNom);
-	
+	cargarApeNom(charAux);
+	strcpy(regLibros[numLibros].nomEditorial,charAux);
+
 }
 
-void cargarTitulo(char *titulo) {
+void cargarTitulo(char titulo[41]) {
 	do
 	{
 		printf("\nIngrese un titulo: ");
@@ -196,7 +199,18 @@ bool verificarCaracteres(char apeNom[31]) {
 	return esValido;
 }
 
-
+void cargarEditorial(char Editorial[41]) {
+	do
+	{
+		printf("\nIngrese el Nombre de la Editorial: ");
+		_flushall;
+		gets(titulo);
+		if (strlen(titulo) > 40 or strlen(titulo) == 0)
+		{
+			printf("\nEl Nombre de la Editorial debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo");
+		}
+	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
+}
 
 void end()
 {
