@@ -11,3 +11,7 @@ invertirCadena (x:xs) = invertirCadena xs ++ [x]
 verificaElem x [] = False
 verificaElem x (y:ys) | x == y = True
                       | otherwise = verificaElem x ys
+
+--- d) Eliminar elementos repetidos de una lista
+eliminaRep [] = []
+eliminaRep (x:xs) = x : eliminaRep (filter (/= x) xs)
