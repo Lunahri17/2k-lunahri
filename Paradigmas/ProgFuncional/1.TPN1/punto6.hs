@@ -23,10 +23,7 @@ unirLista (x:xs) ys
     |verificaElem x ys = unirLista xs ys
     |otherwise = [x] ++ unirLista xs ys
 
---- f) Igual a apartado e) pero sin repetidos
-
-
---- g) obtener vocales
+--- h) obtener vocales
 vocales [] = []
 vocales (x:xs) |x == 'a' = x : vocales xs
                |x == 'e' = x : vocales xs
