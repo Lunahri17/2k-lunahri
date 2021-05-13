@@ -14,7 +14,7 @@ struct fecha
 
 struct libro
 {
-	double isbn;
+	char isbn[18];
 	char tituloObra[41];
 	char apeNom[31];
 	char nomEditorial[41];
@@ -28,8 +28,8 @@ struct libro
 //Protipos de funciones:
 void end();
 int cargarDatos(libro regLibros[200]);
-bool comprobarISBN(libro regLibros[200],int numLibros,double isbn);
-void cargarRegistro(libro regLibros[200],int &numLibros,double isbn);
+bool comprobarISBN(libro regLibros[200],int numLibros,char isbn[18]);
+void cargarRegistro(libro regLibros[200],int &numLibros,char isbn[18]);
 void cargarTitulo(char titulo[41]);
 void cargarApeNom(char apeNom[31]);
 bool verificarCaracteres(char apeNom[31]);
@@ -46,7 +46,7 @@ main()
 {
 	libro regLibros[200];
 	int numLibros = 0;
-	double isbn;
+	char isbn[18];
 	bool stop = false;
 	
 	//Carga los registros del archivo a memoria, y obtiene el numero de registros existentes.
@@ -58,24 +58,24 @@ main()
 
 		do
 		{
-			printf("\nIngrese el ISBN: ");
-			scanf("%lf",&isbn);
+			printf("\n Ingrese el ISBN: ");
+			_flushall;
+			gets(isbn);
 
 			//Verifica si el isb es correcto.
-			if (isbn>1000000000000 and isbn<10000000000000) {
+			if (strlen(isbn) == 17) {
 				
-				if (isbn)
-				{
+				if ((isbn[0] == '9') and (isbn[1] == '7') and (isbn[2] == '8' or isbn[2] == '9')) {
 					
-				}
-				
-				//Aquí comprueba si ya existe algún ISBN en los registros cargados.
-				if (comprobarISBN(regLibros,numLibros,isbn)==false) {	
-					stop = true;
+					//Aquí comprueba si ya existe algún ISBN en los registros cargados.
+					if (comprobarISBN(regLibros,numLibros,isbn)==false) {	
+						stop = true;
+					}					
 				}
 			}
+			
 			if (!stop) {
-				printf("\nIngreso un ISBN incorrecto, vuelva a intentarlo");
+				printf("\n\t--- Ingreso un ISBN incorrecto, vuelva a intentarlo. ---");
 			}
 		} while (!stop);
 		
@@ -84,7 +84,7 @@ main()
 
 		//Guarda los registros en archiivos.
 		guardarArchivo(regLibros,numLibros);
-		printf("\nSu libro fue guardado con exito.");
+		printf("\n\n--- Su libro fue guardado con exito. ---");
 	}
 
 	end();
@@ -98,7 +98,7 @@ int cargarDatos(libro regLibros[200]) {
 
     if (arch==NULL)
     {
-        printf("\nNo fue posible creear, o leer, el archivo 'Libros.dat', contacte con soporte.");
+        printf("\n\t --- No fue posible creear, o leer, el archivo 'Libros.dat', contacte con soporte. ---");
 		return -1;
     }
     else
@@ -116,11 +116,11 @@ int cargarDatos(libro regLibros[200]) {
     }
 }
 
-bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
+bool comprobarISBN(libro regLibros[200],int numLibros,char isbn[18]) {
 	bool esta = false;
 
 	for (int i = 0; i < numLibros; i++) {
-		if (regLibros[i].isbn == isbn) {
+		if (strcmp(regLibros[i].isbn,isbn) == 0) {
 			esta = true;
 			break;
 		}
@@ -133,11 +133,11 @@ bool comprobarISBN(libro regLibros[200],int numLibros,double isbn) {
 	return esta;
 }
 
-void cargarRegistro(libro regLibros[200],int &numLibros,double isbn) {
+void cargarRegistro(libro regLibros[200],int &numLibros,char isbn[18]) {
 	char charAux[41],apeNom[31];
 	fecha fechaAux;
 
-	regLibros[numLibros].isbn = isbn;
+	strcpy(regLibros[numLibros].isbn,isbn);
 	
 	cargarTitulo(charAux);
 	strcpy(regLibros[numLibros].tituloObra,charAux);
@@ -160,7 +160,6 @@ void cargarRegistro(libro regLibros[200],int &numLibros,double isbn) {
 }
 
 void cargarTitulo(char titulo[41]) {
-	int i = 0;
 	do
 	{
 		i++;
@@ -170,9 +169,6 @@ void cargarTitulo(char titulo[41]) {
 		if (strlen(titulo) > 40 or strlen(titulo) == 0)
 		{
 			printf("\nEl nombre del titulo debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo");
-		}
-		if (i==1){
-			system("cls");
 		}
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
 }
@@ -276,7 +272,7 @@ float cargarPrecio() {
 
 	do
 	{
-		printf("\nIngrese el precio:");
+		printf("\nIngrese el precio: ");
 		scanf("%f",&aux);
 		
 		if (aux > 0 and aux <= 99999.99)
