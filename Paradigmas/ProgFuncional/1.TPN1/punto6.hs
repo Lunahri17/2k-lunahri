@@ -24,3 +24,13 @@ unirLista (x:xs) ys
     |otherwise = [x] ++ unirLista xs ys
 
 --- f) Igual a apartado e) pero sin repetidos
+
+
+--- g) obtener vocales
+vocales [] = []
+vocales (x:xs) |x == 'a' = x : vocales xs
+               |x == 'e' = x : vocales xs
+               |x == 'i' = x : vocales xs
+               |x == 'o' = x : vocales xs
+               |x == 'u' = x : vocales xs
+               |otherwise = vocales xs
