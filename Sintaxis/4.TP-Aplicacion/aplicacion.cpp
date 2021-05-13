@@ -48,7 +48,8 @@ main()
 	int numLibros = 0;
 	double isbn;
 	bool stop = false;
-
+	
+	//Carga los registros del archivo a memoria, y obtiene el numero de registros existentes.
 	numLibros = cargarDatos(regLibros);
 
 	if (numLibros != -1)
@@ -59,17 +60,29 @@ main()
 		{
 			printf("\nIngrese el ISBN: ");
 			scanf("%lf",&isbn);
+
+			//Verifica si el isb es correcto.
 			if (isbn>1000000000000 and isbn<10000000000000) {
+				
+				if (isbn)
+				{
+					
+				}
+				
+				//Aquí comprueba si ya existe algún ISBN en los registros cargados.
 				if (comprobarISBN(regLibros,numLibros,isbn)==false) {	
 					stop = true;
 				}
-			} else {
+			}
+			if (!stop) {
 				printf("\nIngreso un ISBN incorrecto, vuelva a intentarlo");
 			}
 		} while (!stop);
 		
+		//Carga los registros.
 		cargarRegistro(regLibros,numLibros,isbn);
 
+		//Guarda los registros en archiivos.
 		guardarArchivo(regLibros,numLibros);
 		printf("\nSu libro fue guardado con exito.");
 	}
