@@ -75,7 +75,7 @@ main()
 			}
 			
 			if (!stop) {
-				printf("\n\t--- Ingreso un ISBN incorrecto, vuelva a intentarlo. ---");
+				printf("\n\t--- Ingreso un ISBN incorrecto, vuelva a intentarlo. ---\n");
 			}
 		} while (!stop);
 		
@@ -98,7 +98,7 @@ int cargarDatos(libro regLibros[200]) {
 
     if (arch == NULL)
     {
-        printf("\n\t --- No fue posible creear, o leer, el archivo 'Libros.dat', contacte con soporte. ---");
+        printf("\n\t --- No fue posible creear, o leer, el archivo 'Libros.dat', contacte con soporte. ---\n");
 		return -1;
     }
     else
@@ -127,7 +127,7 @@ bool comprobarISBN(libro regLibros[200],int numLibros,char isbn[18]) {
 	}
 
 	if (esta) {
-		printf("\n\t--- Ya existe el ISBN que ingreso, vuelva a intentarlo. ---");
+		printf("\n\t--- Ya existe el ISBN que ingreso, vuelva a intentarlo. ---\n");
 	}
 
 	return esta;
@@ -162,13 +162,12 @@ void cargarRegistro(libro regLibros[200],int &numLibros,char isbn[18]) {
 void cargarTitulo(char titulo[41]) {
 	do
 	{
-		i++;
 		printf("\n Ingrese un titulo: ");
 		_flushall;
 		gets(titulo);
 		if (strlen(titulo) > 40 or strlen(titulo) == 0)
 		{
-			printf("\n\t--- El nombre del titulo debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo. ---");
+			printf("\n\t--- El nombre del titulo debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo. ---\n");
 		}
 	} while (strlen(titulo) > 40 or strlen(titulo) == 0);
 }
@@ -186,12 +185,12 @@ void cargarApeNom(char apeNom[31]) {
 
 		if (strlen(apeNom) > 30 or strlen(apeNom) == 0)
 		{
-			printf("\n\t--- El Apellido y Nombre debe ser menor o igual a 30 caracteres, y no nulo. Vuelva a intentarlo. ---");
+			printf("\n\t--- El Apellido y Nombre debe ser menor o igual a 30 caracteres, y no nulo. Vuelva a intentarlo. ---\n");
 			stop = false;
 		}
 		if (verificarCaracteres(apeNom) == false)
 		{
-			printf("\n\t--- Cada cadena del Apellido y Nombre debe empezar con una mayuscula. Vuelva a intentarlo. ---");
+			printf("\n\t--- Cada cadena del Apellido y Nombre debe empezar con una mayuscula. Vuelva a intentarlo. ---\n");
 			stop = false;
 		}
 		
@@ -233,7 +232,7 @@ void cargarEditorial(char Editorial[41]) {
 		gets(Editorial);
 		if (strlen(Editorial) > 40 or strlen(Editorial) == 0)
 		{
-			printf("\n\t--- El Nombre de la Editorial debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo. ---");
+			printf("\n\t--- El Nombre de la Editorial debe ser menor o igual a 40 caracteres, y no nulo. Vuelva a intentarlo. ---\n");
 		}
 	} while (strlen(Editorial) > 40 or strlen(Editorial) == 0);
 }
@@ -243,7 +242,7 @@ void cargarFecha(fecha fechaAux) {
 
 	do
 	{
-		printf("\n Ingrese la fecha de publicación:");
+		printf("\n Ingrese la fecha de publicacion:");
 		printf("\n Dia: ");
 		scanf("%d",&fechaAux.dia);
 		printf("\n Mes: ");
@@ -261,7 +260,7 @@ void cargarFecha(fecha fechaAux) {
 		
 		if (!stop)
 		{
-			printf("\n\t--- Ingreso una fecha no valida. Vuelva a intentarlo. ---");
+			printf("\n\t--- Ingreso una fecha no valida. Vuelva a intentarlo. ---\n");
 		}
 	} while (!stop);
 }
@@ -281,7 +280,7 @@ float cargarPrecio() {
 		}
 		else
 		{
-			printf("\n\t--- Ingreso un precio no valido. Vuelva a intentarlo. ---");
+			printf("\n\t--- Ingreso un precio no valido. Vuelva a intentarlo. ---\n");
 		}
 	} while (!stop);
 
@@ -294,7 +293,7 @@ int cargarCantidad() {
 
 	do
 	{
-		printf("\n Ingrese la cantidad de libros:");
+		printf("\n Ingrese la cantidad de libros: ");
 		scanf("%d",&aux);
 		
 		if (aux > 0 and aux <= 9999)
@@ -303,7 +302,7 @@ int cargarCantidad() {
 		}
 		else
 		{
-			printf("\n\t--- Ingreso una cantidad no valida. Vuelva a intentarlo. ---");
+			printf("\n\t--- Ingreso una cantidad no valida. Vuelva a intentarlo. ---\n");
 		}
 	} while (!stop);
 
