@@ -3,6 +3,7 @@
 dia x = div x 1000000
 mes x = div (mod (x - anio x) 1000000) 10000
 anio x = mod x 10000
+fecha x = (dia x , mes x , anio)
 
 -- b) Averiguar si un alumno aprobó el parcial (Ap <= 6):
 resultado x 
