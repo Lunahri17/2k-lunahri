@@ -12,3 +12,15 @@ maxmin x y | x > y = (x,y)
 listaSumComp :: [(Int,Int)] -> [Int]
 listaSumComp [] = []
 listaSumComp (x:xs) = sumaComp x : listaSumComp xs
+
+
+--- Problama de la base de datos de la pelicula
+--- a) Dada una lista de películas devuelva el tiempo que tardaría en verlas a todas.
+--verTodas :: [(String, Int, Int, String)] -> Int
+--verTodas [] = []
+--verTodas (x:xs) = duracionPeli x + verTodas xs
+
+--- Función adicional para verTodas
+duracionPeli :: (String, Int, Int, String) -> Int
+duracionPeli (w,x,y,z) = y
+
