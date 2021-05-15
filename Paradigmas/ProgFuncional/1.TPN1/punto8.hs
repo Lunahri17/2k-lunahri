@@ -37,3 +37,10 @@ anioPeli (w,x,y,z) | x == 2019 = True
 
 nombrePeli :: (String, Int, Int, String) -> String
 nombrePeli (w,x,y,z) = w
+
+
+--- Funcion similar a map
+fun f f2 (x:xs) = [f f2 x | x <- xs] 
+
+cuadrado x = x * x
+siguiente x = x + 1
