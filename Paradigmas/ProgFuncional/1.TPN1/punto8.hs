@@ -24,3 +24,16 @@ listaSumComp (x:xs) = sumaComp x : listaSumComp xs
 duracionPeli :: (String, Int, Int, String) -> Int
 duracionPeli (w,x,y,z) = y
 
+--- b) Dada una lista de películas devuelva el listado de películas que estrenaron en 2019
+estrenos :: [(String, Int, Int, String)] -> [String] 
+estrenos [] = []
+estrenos (x:xs) | anioPeli x == True = nombrePeli x : estrenos xs
+                | otherwise = estrenos xs
+
+--- Funciones adicionales para estrenos
+anioPeli :: (String, Int, Int, String) -> Bool
+anioPeli (w,x,y,z) | x == 2019 = True
+                   | otherwise = False
+
+nombrePeli :: (String, Int, Int, String) -> String
+nombrePeli (w,x,y,z) = w
