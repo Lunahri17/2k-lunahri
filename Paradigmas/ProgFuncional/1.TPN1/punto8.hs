@@ -7,3 +7,8 @@ sumaComp (x,y) = x + y
 maxmin :: Int -> Int -> (Int, Int)
 maxmin x y | x > y = (x,y)
            | otherwise = (y,x)
+
+--- La sumade los componentespara una lista de tuplas
+listaSumComp :: [(Int,Int)] -> [Int]
+listaSumComp [] = []
+listaSumComp (x:xs) = sumaComp x : listaSumComp xs
