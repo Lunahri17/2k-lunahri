@@ -16,13 +16,9 @@ listaSumComp (x:xs) = sumaComp x : listaSumComp xs
 
 --- Problama de la base de datos de la pelicula
 --- a) Dada una lista de películas devuelva el tiempo que tardaría en verlas a todas.
---verTodas :: [(String, Int, Int, String)] -> Int
---verTodas [] = []
---verTodas (x:xs) = duracionPeli x + verTodas xs
-
---- Función adicional para verTodas
-duracionPeli :: (String, Int, Int, String) -> Int
-duracionPeli (w,x,y,z) = y
+---verTodas :: [(String, Int, Int, String)] -> Int
+---verTodas [] = []
+---verTodas ((x1,x2,x3,x4):xs) = x3 + verTodas xs
 
 --- b) Dada una lista de películas devuelva el listado de películas que estrenaron en 2019
 estrenos :: [(String, Int, Int, String)] -> [String] 
