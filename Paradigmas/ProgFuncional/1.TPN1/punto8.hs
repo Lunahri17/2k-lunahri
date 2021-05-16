@@ -40,7 +40,7 @@ nombrePeli (w,x,y,z) = w
 
 
 --- Funcion similar a map
-fun f f2 (x:xs) = [f f2 x | x <- xs] 
+fun f f2 (x:xs) = [f (f2 x) | x <- xs]
 
 cuadrado x = x * x
 siguiente x = x + 1
