@@ -30,15 +30,15 @@ alguienquiere(A) :- quierea(B,A), B \== A . % Alguien quiere a Maria.
 alguienquieretodos(L) :- A = 'Maria', B = 'Juan', C = 'Pedro', D = 'Belen', E = 'Manuel', quierea(L, A), quierea(L, B), quierea(L, C), quierea(L, D), quierea(L, E).
 
 % Predicados a responder:
-% ¿Quiere Manuel a María? 			-> quiera('Manuel', 'Maria').
-% ¿Quiere Manuel a María y a Pedro? 		-> quierea('Manuel', 'Maria'), quierea('Manuel', 'Pedro').
-% ¿Quiere Manuel a alguien? 			-> quierea('Manuel', X).
-% ¿Quiénes son los que quieren a María? 	-> quierea(X, 'Maria').
-% ¿Quiénes son los que quieren a Pedro? 	-> quierea(X, 'Pedro').
+% ¿Quiere Manuel a María? 			            -> quiera('Manuel', 'Maria').
+% ¿Quiere Manuel a María y a Pedro?         	-> quierea('Manuel', 'Maria'), quierea('Manuel', 'Pedro').
+% ¿Quiere Manuel a alguien? 			        -> quierea('Manuel', X).
+% ¿Quiénes son los que quieren a María? 	    -> quierea(X, 'Maria').
+% ¿Quiénes son los que quieren a Pedro? 	    -> quierea(X, 'Pedro').
 % ¿Quiénes son los que se quieren mutuamente? 	-> quierea(X, Y), quierea(Y, X).
 % ¿Quiénes son los que se quieren a sí mismos? 	-> sequiere(X).
-% ¿Se quiere Manuel a sí mismo? 		-> sequiere('Manuel').
-% ¿Hay alguien que quiera a María? 		-> alguienquiere('Maria').
-% ¿Hay alguien que quiera a alguien? 		-> alguienquiere(A).
-% ¿Hay alguien que se quiera a sí mismo? 	-> sequiere(X).
-% ¿Hay alguien que quiera a todo el mundo? 	-> alguienquieretodos(L).
+% ¿Se quiere Manuel a sí mismo? 		        -> sequiere('Manuel').
+% ¿Hay alguien que quiera a María? 		        -> alguienquiere('Maria').
+% ¿Hay alguien que quiera a alguien?            -> alguienquiere(A).
+% ¿Hay alguien que se quiera a sí mismo? 	    -> sequiere(X).
+% ¿Hay alguien que quiera a todo el mundo? 	    -> alguienquieretodos(L).
