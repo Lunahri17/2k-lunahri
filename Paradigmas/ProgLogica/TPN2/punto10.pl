@@ -10,6 +10,8 @@ sueldoPromedio(produccion,77000).
 
 ventas(180000).
 
+% -------
+
 totalSueldos(X, Importe) :- findall((NumEmpleados, Puesto, Sueldo), (empleados(Puesto, NumEmpleados), sueldoPromedio(Puesto, Sueldo)), X), sumaSueldos(X, Importe).
 
 sumaSueldos([(Cant, _, Sueld)], Importe).
