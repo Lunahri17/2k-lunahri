@@ -22,3 +22,8 @@ sumaSueldos([(Cant, _, Sueld) | Xs], Importe) :- sumaSueldos(Xs, Importe).
 multi(Cant, Sueld, Z) :- Z is Cant * Sueld.
 
 % ----Apartado b)----
+porcentaje(TotalGasto, X, Importe) :- findall(Ingresos, (ventas(Ingresos)), X), excedente(TotalGasto, X, Importe).
+
+excedente(TotalGasto, X, Importe) :- calculoExc(TotalGasto, X, Importe), Importe >= 0.
+
+calculoExc(TotalGasto, X, Importe) :- Importe is X - TotalGasto.
