@@ -22,8 +22,14 @@ sumaSueldos([(Cant, _, Sueld) | Xs], Importe) :- sumaSueldos(Xs, Importe).
 multi(Cant, Sueld, Z) :- Z is Cant * Sueld.
 
 % ----Apartado b)----
-porcentaje(TotalGasto, X, Importe) :- findall(Ingresos, (ventas(Ingresos)), X), excedente(TotalGasto, X, Importe).
+porcentaje(TotalGasto, X, Importe) :- findall(Ingresos, (ventas(Ingresos)), X), recorte(TotalGasto, X, Importe).
 
-excedente(TotalGasto, X, Importe) :- calculoExc(TotalGasto, X, Importe), Importe >= 0.
+recorte(TotalGasto, [Head |_], Importe) :- Head > TotalGasto, Importe is Head - TotalGasto.
 
-calculoExc(TotalGasto, X, Importe) :- Importe is X - TotalGasto.
+
+
+
+
+excedente(_, [], 0) :- !.
+excedente(TotalGasto, [Head | Tail], Importe) :- excedente(TotalGasto, Tail, Importe), Importe is TotalGasto - Head, !.
+excedente(TotalGasto, [Head | Tail], Importe) :- excedente(TotalGasto, Tail, Importe).
