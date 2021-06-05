@@ -25,11 +25,3 @@ multi(Cant, Sueld, Z) :- Z is Cant * Sueld.
 porcentaje(TotalGasto, X, Importe) :- findall(Ingresos, (ventas(Ingresos)), X), recorte(TotalGasto, X, Importe).
 
 recorte(TotalGasto, [Head |_], Importe) :- Head > TotalGasto, Importe is Head - TotalGasto.
-
-
-
-
-
-excedente(_, [], 0) :- !.
-excedente(TotalGasto, [Head | Tail], Importe) :- excedente(TotalGasto, Tail, Importe), Importe is TotalGasto - Head, !.
-excedente(TotalGasto, [Head | Tail], Importe) :- excedente(TotalGasto, Tail, Importe).
