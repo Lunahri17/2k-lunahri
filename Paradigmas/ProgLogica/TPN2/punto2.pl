@@ -1,4 +1,4 @@
-% ---Punto 2 ---
+% --- Punto 2 ---
 quierea('Pedro', 'Maria').	% Pedro quiere a María.
 quierea('Pedro', 'Belen').	% Pedro quiere a Belén.
 quierea('Manuel', 'Belen').	% Manuel quiere a Belén.

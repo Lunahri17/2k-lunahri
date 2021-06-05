@@ -1,4 +1,4 @@
-% Punto 10
+% --- Punto 10 ---
 empresa([administracion,personal,produccion]).
 
 empleados(administracion,3).

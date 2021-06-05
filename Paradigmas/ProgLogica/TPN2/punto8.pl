@@ -1,3 +1,4 @@
+% --- Punto 8 ---
 cursa(pedro, paradigmas).
 cursa(mario, paradigmas).
 cursa(pedro, operativos).
