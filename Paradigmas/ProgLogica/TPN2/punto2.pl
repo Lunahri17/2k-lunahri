@@ -4,18 +4,11 @@ quierea('Pedro', 'Belen').	% Pedro quiere a Belén.
 quierea('Manuel', 'Belen').	% Manuel quiere a Belén.
 quierea('Maria', 'Pedro').	% María quiere a Pedro.
 
-quierea('Todos','Maria').   % Todos quieren a María.
-quierea('Todos','Juan').    % Todos quieren a Juan.
+quierea('Todos','Juan y Maria'). % Todos quieren a Juan y a María.
 
-% Todo el mundo se quiere a si mismo.
-quierea('Juan', 'Asimismo').
-quierea('Pedro', 'Asimismo').
-quierea('Maria', 'Asimismo').
-quierea('Belen', 'Asimismo').
-quierea('Manuel', 'Asimismo').
+quierea('Todos', 'Asimismo').% Todo el mundo se quiere a si mismo.
 
-quierea('Alguien','Juan').  % Alguien quiere a Juan.
-quierea('Alguien','Pedro'). % Alguien quiere a Pedro.
+quierea('Alguien','Juan y Pedro').  % Alguien quiere a Juan y a Pedro.
 quierea('Alguien','Maria'). % Alguien quiere a María.
 
 quierea('Alguien','Todos'). % Alguien quiere a Todos.
@@ -23,7 +16,7 @@ quierea('Alguien','Todos'). % Alguien quiere a Todos.
 
 % Predicados a responder:
 % ¿Quiere Manuel a María? 			            -> quierea('Manuel', 'Maria').
-% ¿Quiere Manuel a María y a Pedro?         	-> quierea('Manuel', 'Maria'), quierea('Manuel', 'Pedro').
+% ¿Quiere Manuel a María y a Pedro?         	-> quierea('Manuel', 'Maria y Pedro').
 % ¿Quiere Manuel a alguien? 			        -> quierea('Manuel', 'Alguien').
 % ¿Quiénes son los que quieren a María? 	    -> quierea(X, 'Maria').
 % ¿Quiénes son los que quieren a Pedro? 	    -> quierea(X, 'Pedro').
