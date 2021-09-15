@@ -18,6 +18,8 @@
 #define Q6 6
 #define Q7 7
 #define Q8 8
+#define Q9 9
+#define Q10 10
 
 int matriz[5][5] = {
     {Q1, Q2, Q3, Q0, Q4},
@@ -83,7 +85,7 @@ int main(int argc, char** argv) {
             while (fgets(cadena, 100, handler1) != NULL) {
                 strcat(expresion, cadena);
             }
-            strcat(expresion, " "); // Se agrega un espacio para garantizar la detección del último Token
+            strcat(expresion, " "); // Se agrega un espacio para garantizar la detecciï¿½n del ï¿½ltimo Token
             fclose(handler1);
 
             FILE *handler2 = fopen(salida, "w");
