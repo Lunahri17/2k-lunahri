@@ -1,9 +1,3 @@
-//Dise~ar un analizador lexico que reconozca palabras formadas por letras minusculas, 
-//palabras que comienzan con una mayuscula y puede estar seguida por una o mas minusculas 
-//y secuencias de d�gitos. Separadas por espacios.
-//Se consideraria error lexico cualquier otra secuencia que no se ajuste a las anteriores.
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
