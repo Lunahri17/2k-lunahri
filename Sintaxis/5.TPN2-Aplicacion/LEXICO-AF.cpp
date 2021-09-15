@@ -47,12 +47,6 @@ int esFinal(int estado, int finales[], int n) {
     return resultado;
 }
 
-//0: 0..9
-//1: a..z
-//2: A..Z
-//3: espacio
-//4: cualquier otro caracter
-
 int conversor(char caracter) {
     return ( isdigit(caracter) ? 0 :
             (islower(caracter) ? 1 :
