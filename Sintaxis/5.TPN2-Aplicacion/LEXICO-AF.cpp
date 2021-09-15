@@ -33,8 +33,6 @@ int matriz[6][7] = {
 
 int FINALES[] = {Q6, Q7, Q8, Q9, Q10);
 
-// Controlar si estado es final
-
 int esFinal(int estado, int finales[], int n) {
     int resultado = 0;
     int i = 0;
@@ -48,10 +46,12 @@ int esFinal(int estado, int finales[], int n) {
 }
 
 int conversor(char caracter) {
-    return ( isdigit(caracter) ? 0 :
-            (islower(caracter) ? 1 :
-            (isupper(caracter) ? 2 :
-            (caracter == ' ') ? 3 : 4)));
+    return  (isdigit(caracter) ? 0 :
+             (caracter == '1','2','3','4','7','8','9') ? 1 :
+             (caracter == '+','-') ? 2 :
+             (caracter == '*','/') ? 3 :
+             (caracter == '(',')') ? 4:
+             (caracter == '.') ? 5 : 6);
 }
 
 
