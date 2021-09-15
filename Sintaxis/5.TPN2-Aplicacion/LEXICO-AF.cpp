@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
             while (fgets(cadena, 100, handler1) != NULL) {
                 strcat(expresion, cadena);
             }
-            strcat(expresion, " "); // Se agrega un espacio para garantizar la detecci�n del �ltimo Token
+            strcat(expresion, " "); 
             fclose(handler1);
 
             FILE *handler2 = fopen(salida, "w");
