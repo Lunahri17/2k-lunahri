@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
             "OPERADORES",
             "ERROR"
         };
-        int OFFSET = 5;
+        int OFFSET = 7;
 
         FILE *handler1 = fopen(entrada, "r");
         if (handler1 != NULL) {
