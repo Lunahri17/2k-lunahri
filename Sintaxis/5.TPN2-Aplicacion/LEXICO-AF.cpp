@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
         };
         int OFFSET = 7;
 
-        FILE *handler1 = fopen(entrada, "r");
+        FILE *handler1 = fopen(entrada, "r+w");
         if (handler1 != NULL) {
             char expresion[200] = "";
             char cadena[100];
