@@ -25,7 +25,7 @@ int matriz[6][7] = {
     { Q5, -1,  Q6,  Q6,  Q6, Q10, Q10}, // Q5
 };
 
-int FINALES[] = {Q6, Q7, Q8, Q9, Q10);
+int FINALES[] = {Q6, Q7, Q8, Q9, Q10};
 
 int esFinal(int estado, int finales[], int n) {
     int resultado = 0;
