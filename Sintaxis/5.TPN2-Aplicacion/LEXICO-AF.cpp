@@ -31,7 +31,7 @@ int matriz[6][7] = {
     { Q5, -1,  Q6,  Q6,  Q6, Q10, Q10}, // Q5
 };
 
-int FINALES[] = {Q5, Q6, Q7, Q8};
+int FINALES[] = {Q6, Q7, Q8, Q9, Q10);
 
 // Controlar si estado es final
 
