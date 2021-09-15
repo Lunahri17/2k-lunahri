@@ -66,10 +66,11 @@ int main(int argc, char** argv) {
         char salida[30];
         strncpy(salida, argv[2], sizeof (salida));
 
-        char tokenType[][10] = {
-            "DIGITO",
-            "MINUSCULA",
-            "MAYUSCULA",
+        char tokenType[][20] = {
+            "ENTERO",
+            "REAL",
+            "PARENTESIS",
+            "OPERADORES",
             "ERROR"
         };
         int OFFSET = 5;
