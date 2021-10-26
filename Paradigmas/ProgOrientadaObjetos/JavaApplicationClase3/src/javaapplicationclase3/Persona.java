@@ -1,6 +1,6 @@
 package javaapplicationclase3;
 
-public class Persona {
+public class Persona { // Si añado asbtract, luego de public, me sirve para evitar que se creen objetos, solo subclases.
 
     private String nombre;
     private int edad;
