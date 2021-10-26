@@ -33,6 +33,12 @@ public class MiPrimeraClase {
         c1.mostrar(); //Le envio un mensaje al obejto circulo c1 que se muestre.
         System.out.println("Area del circulo c1: " + c1.calcularArea());
         
+        
+        //Encapsulamiento
+        //Circulo:
+        c1.setRadio(10);
+        c1.mostrar();
+        System.out.println("Area del circulo c1: " + c1.calcularArea());
     }
     
 }
