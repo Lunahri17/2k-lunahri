@@ -15,6 +15,15 @@ public class JavaApplicationClase3 {
         //a.setLegajo(52473);
         //a.setCarrera("ISI");
         System.out.println(p.getNombre() + " " + p.getEdad());
+        
+        Empleado e = new Empleado("Luna",21,90000,15);
+        
+        System.out.println("Nombre: " + e.getNombre() + " | Edad: " + e.getEdad()
+                            + " | Sueldo: $" + e.getSueldo() + " | Horas: " + 
+                            e.getHoras());
+        
+        
+        
     }
     
 }
