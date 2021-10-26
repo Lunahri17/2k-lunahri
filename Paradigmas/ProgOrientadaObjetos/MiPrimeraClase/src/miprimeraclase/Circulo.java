@@ -3,7 +3,7 @@ package miprimeraclase;
 public class Circulo {
     private double radio = 1;
     
-    void setRadio(double rad){
+    public void setRadio(double rad){
         if (rad >= 0){
             radio = rad;
         } else {
