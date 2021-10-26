@@ -1,10 +1,14 @@
 package miprimeraclase;
 
 public class Circulo {
-    double radio = 1;
+    private double radio = 1;
     
     void setRadio(double rad){
-        radio = rad;
+        if (rad >= 0){
+            radio = rad;
+        } else {
+            System.out.println("El radio es invalido");
+        }
     }
     
     public void mostrar(){

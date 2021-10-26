@@ -37,6 +37,7 @@ public class MiPrimeraClase {
         //Encapsulamiento
         //Circulo:
         c1.setRadio(10);
+        c1.setRadio(-10);
         c1.mostrar();
         System.out.println("Area del circulo c1: " + c1.calcularArea());
     }
