@@ -19,12 +19,19 @@ public class Mariadbconnector {
                                                         //Devuelve un int con la cantidad de filas afectadas
             //System.out.println(res);
             
-            ResultSet res = s.executeQuery("SELECT * FROM pelicula");
+            // Pedir tabla a mariadb
+            /* ResultSet res = s.executeQuery("SELECT * FROM pelicula");
             while (res.next()){
                 System.out.println(res.getString("Codigo"));;
                 System.out.println(res.getString("Nombre"));;
                 System.out.println(res.getString("Genero"));;
-            }
+            } */
+            
+            //Insertar datos a una tabla (metodo inseguro y complicado).
+            String nombre = "Saw 6", genero = "Terror";
+            int codigo = 20;
+            s.executeUpdate("INSERT INTO pelicula VALUES(" + codigo + ",'" + 
+                            nombre + "','" + genero + "')");
             
         } catch (Exception e){
             System.out.println("Error de Conexión: " + e);
