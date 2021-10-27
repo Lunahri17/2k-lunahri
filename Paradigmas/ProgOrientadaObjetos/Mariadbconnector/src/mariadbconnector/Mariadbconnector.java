@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mariadbconnector;
 
-/**
- *
- * @author Luna
- */
+import java.sql.*; //Connection, Statement, ResultSet
+
 public class Mariadbconnector {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        try { 
+            //Iniciar conexión
+            Connection c = DriverManager.getConnection(
+                    "jdbc:mysql://localhost","root","1234");
+            System.out.println("Conexión Establecida");
+            
+        } catch (Exception e){
+            System.out.println("Error de Conexión");
+        }
     }
     
 }
