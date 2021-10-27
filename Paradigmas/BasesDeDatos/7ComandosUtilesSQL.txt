@@ -1,0 +1,33 @@
+-- Crea una base de datos:
+-- CREATE DATABASE videoclub;
+-- CREATE DATABASE kiosko;
+
+-- Crea una tabla;
+/* CREATE TABLE pelicula(
+Codigo INT,
+Nombre VARCHAR(100),
+Genero VARCHAR(100)
+); */
+
+-- Insertar datos a la tabla:
+-- INSERT INTO pelicula VALUES (1, 'Robocop', 'Acción');
+-- INSERT INTO pelicula VALUES (2, 'COCA', 'agua');
+-- INSERT INTO pelicula VALUES (3, 'fanta', 'gas');
+-- INSERT INTO pelicula VALUES (4, 'Mirinida', 'jugo');
+
+
+-- Busca y muestra dependiendo el parametro:
+-- SELECT Codigo, Nombre FROM pelicula
+-- SELECT * FROM pelicula
+-- SELECT * FROM pelicula WHERE Genero = 'Acción'
+-- SELECT * FROM pelicula ORDER BY Genero, Nombre
+-- SELECT * FROM pelicula WHERE Genero = 'Acción' ORDER BY Nombre
+
+-- Elimina Columnas:
+-- DELETE FROM pelicula WHERE Codigo = 3
+
+-- Modifica columnas:
+-- UPDATE pelicula SET Nombre = 'ROBOCOP' WHERE Codigo = 1
+-- UPDATE pelicula SET Nombre = 'ROBOCOP', Genero = 'ACCIÓN' WHERE Codigo = 1
+
+
