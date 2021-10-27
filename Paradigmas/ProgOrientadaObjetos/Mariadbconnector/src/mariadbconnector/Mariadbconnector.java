@@ -12,7 +12,7 @@ public class Mariadbconnector {
             System.out.println("Conexión Establecida");
             
             //Enviar orden a mariaDB
-            Statement s = c.createStatement();
+            //Statement s = c.createStatement();
             //s.execute("CREATE DATABASE prueba1");
             //s.execute("INSERT INTO pelicula VALUES(7,'IT','Terror')");
             //int res = s.executeUpdate("DELETE FROM pelicula WHERE codigo = 7"); 
@@ -28,10 +28,18 @@ public class Mariadbconnector {
             } */
             
             //Insertar datos a una tabla (metodo inseguro y complicado).
-            String nombre = "Saw 6", genero = "Terror";
+            /* String nombre = "Saw 6", genero = "Terror";
             int codigo = 20;
             s.executeUpdate("INSERT INTO pelicula VALUES(" + codigo + ",'" + 
                             nombre + "','" + genero + "')");
+            */
+            
+            PreparedStatement s = c.prepareStatement(
+                    "INSERT INTO pelicula VALUES (?,?,?)");
+            s.setInt(1,21);
+            s.setString(2, "Saw 7");
+            s.setString(3, "Terror");
+            s.executeUpdate();
             
         } catch (Exception e){
             System.out.println("Error de Conexión: " + e);
