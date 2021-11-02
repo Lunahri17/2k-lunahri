@@ -2,6 +2,20 @@ package miprimersistema;
 import java.sql.*;
 
 public class DB {
+    public void delCustomer(int customerNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "DELETE FROM customers WHERE VALUES(?)");
+            s.setInt(1, customerNumber);
+            s.executeUpdate();            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     public void addCustomer(int customerNumber, String customerName, String contactLastName,
             String contactFirstName, String phone, String addressLine1,

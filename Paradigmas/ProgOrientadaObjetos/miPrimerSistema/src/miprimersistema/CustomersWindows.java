@@ -223,6 +223,8 @@ public class CustomersWindows extends javax.swing.JFrame {
                 addressLine2TextField.getText(), cityTextField.getText(),
                 stateTextField.getText(), postalCodeTextField.getText(), 
                 countryTextField.getText(), saleRepEmployeeNumber, creditLimit);
+        
+        
     }//GEN-LAST:event_cargarClienteButtonActionPerformed
 
     /**
