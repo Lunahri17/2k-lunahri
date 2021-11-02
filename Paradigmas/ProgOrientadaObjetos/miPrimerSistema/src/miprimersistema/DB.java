@@ -8,7 +8,7 @@ public class DB {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "DELETE FROM customers WHERE VALUES(?)");
+                    "DELETE FROM customers WHERE customerNumber = ?");
             s.setInt(1, customerNumber);
             s.executeUpdate();            
             
