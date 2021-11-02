@@ -16,6 +16,8 @@ public class CustomersWindows extends javax.swing.JFrame {
      */
     public CustomersWindows() {
         initComponents();
+        DB db = new DB();
+        salesRepEmployeeNumberComboBox.setModel(db.getEmployeesNumber());
     }
 
     /**
@@ -57,6 +59,7 @@ public class CustomersWindows extends javax.swing.JFrame {
         cargarClienteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Alta de Clientes");
 
         jLabel1.setText("Alta de Clientes:");
 
@@ -87,6 +90,11 @@ public class CustomersWindows extends javax.swing.JFrame {
         jLabel14.setText("Límite de Credito:");
 
         salesRepEmployeeNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        salesRepEmployeeNumberComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                salesRepEmployeeNumberComboBoxItemStateChanged(evt);
+            }
+        });
 
         cargarClienteButton.setText("Cargar Cliente");
         cargarClienteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,8 +149,8 @@ public class CustomersWindows extends javax.swing.JFrame {
                             .addComponent(stateTextField)
                             .addComponent(postalCodeTextField)
                             .addComponent(countryTextField)
-                            .addComponent(salesRepEmployeeNumberComboBox, 0, 200, Short.MAX_VALUE)
-                            .addComponent(creditLimitTextField))))
+                            .addComponent(creditLimitTextField)
+                            .addComponent(salesRepEmployeeNumberComboBox, 0, 200, Short.MAX_VALUE))))
                 .addGap(56, 56, 56)
                 .addComponent(cargarClienteButton)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -214,15 +222,14 @@ public class CustomersWindows extends javax.swing.JFrame {
     private void cargarClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarClienteButtonActionPerformed
         DB db = new DB();
         int customerNumber = Integer.parseInt(customerNumberTextField.getText());
-        int saleRepEmployeeNumber = 1002; //salesRepEmployeeNumberComboBox.Obtener el que esté seleccionado xd
-        int creditLimit = Integer.parseInt(creditLimitTextField.getText());
-        
-        if(creditLimitTextField.getText() != null){
-            
+        int creditLimit;
+        if("".equals(creditLimitTextField.getText())){
+            creditLimit = 0;
         } else{
-            customerNumber = 0;
+            creditLimit = Integer.parseInt(creditLimitTextField.getText());
         }
-        
+        int saleRepEmployeeNumber = Integer.parseInt(salesRepEmployeeNumberComboBox.getSelectedItem().toString());
+        System.out.println(saleRepEmployeeNumber);
         
         db.addCustomer(customerNumber, customerNameTextField.getText(), 
                 contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
@@ -233,6 +240,10 @@ public class CustomersWindows extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_cargarClienteButtonActionPerformed
+
+    private void salesRepEmployeeNumberComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_salesRepEmployeeNumberComboBoxItemStateChanged
+        
+    }//GEN-LAST:event_salesRepEmployeeNumberComboBoxItemStateChanged
 
     /**
      * @param args the command line arguments
