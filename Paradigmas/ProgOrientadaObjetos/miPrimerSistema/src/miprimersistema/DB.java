@@ -1,5 +1,6 @@
 package miprimersistema;
 import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 
 public class DB {
         
@@ -26,7 +27,7 @@ public class DB {
             s.setString(11, country);
             s.setInt(12, salesRepEmployeeNumber);
             s.setDouble(13, creditLimit);
-            s.executeUpdate();            
+            s.executeUpdate();         
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -48,18 +49,52 @@ public class DB {
         }
     }
     
-    public void listar(){
+    
+    public DefaultTableModel listar(){
+        DefaultTableModel resultado = new DefaultTableModel();
+        resultado.addColumn("customerNumber");
+        resultado.addColumn("customerName");
+        resultado.addColumn("contactlastName");
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             Statement s = con.createStatement();
             ResultSet res = s.executeQuery("SELECT * FROM customers");
             while (res.next()) {
-                System.out.println(res.getString("customerNumber"));
+                Object[] fila = new Object[3];
+                fila[0] = res.getString("customerNumber");
+                fila[1] = res.getString("customerName");
+                fila[2] = res.getString("contactLastName");
+                resultado.addRow(fila);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return resultado;
+    }
+    public DefaultTableModel findCustomer(int customerNumber){
+        DefaultTableModel resultado = new DefaultTableModel();
+        resultado.addColumn("customerNumber");
+        resultado.addColumn("customerName");
+        resultado.addColumn("contactlastName");
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "SELECT * FROM customers WHERE customerNumber LIKE '% ?%'");
+            s.setInt(1, customerNumber);
+            ResultSet res = s.executeQuery(); 
+            while (res.next()) {
+                Object[] fila = new Object[3];
+                fila[0] = res.getString("customerNumber");
+                fila[1] = res.getString("customerName");
+                fila[2] = res.getString("contactLastName");
+                resultado.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return resultado;
     }
     
     public void prueba(){

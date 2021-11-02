@@ -56,7 +56,7 @@ public class CustomersWindows extends javax.swing.JFrame {
         salesRepEmployeeNumberComboBox = new javax.swing.JComboBox<>();
         cargarClienteButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Alta de Clientes:");
 
@@ -216,6 +216,13 @@ public class CustomersWindows extends javax.swing.JFrame {
         int customerNumber = Integer.parseInt(customerNumberTextField.getText());
         int saleRepEmployeeNumber = 1002; //salesRepEmployeeNumberComboBox.Obtener el que esté seleccionado xd
         int creditLimit = Integer.parseInt(creditLimitTextField.getText());
+        
+        if(creditLimitTextField.getText() != null){
+            
+        } else{
+            customerNumber = 0;
+        }
+        
         
         db.addCustomer(customerNumber, customerNameTextField.getText(), 
                 contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
