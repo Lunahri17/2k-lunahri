@@ -2,21 +2,7 @@ package miprimersistema;
 import java.sql.*;
 
 public class DB {
-    public void delCustomer(int customerNumber){
-            
-        try {
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost/classicmodels","root","1234");
-            PreparedStatement s = con.prepareStatement(
-                    "DELETE FROM customers WHERE customerNumber = ?");
-            s.setInt(1, customerNumber);
-            s.executeUpdate();            
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    
+        
     public void addCustomer(int customerNumber, String customerName, String contactLastName,
             String contactFirstName, String phone, String addressLine1,
             String addressLine2, String city, String state, String postalCode,
@@ -42,6 +28,35 @@ public class DB {
             s.setDouble(13, creditLimit);
             s.executeUpdate();            
             
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void delCustomer(int customerNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "DELETE FROM customers WHERE customerNumber = ?");
+            s.setInt(1, customerNumber);
+            s.executeUpdate();            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listar(){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            Statement s = con.createStatement();
+            ResultSet res = s.executeQuery("SELECT * FROM customers");
+            while (res.next()) {
+                System.out.println(res.getString("customerNumber"));
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
