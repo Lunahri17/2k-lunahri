@@ -1,6 +1,5 @@
 package miprimersistema;
 import java.sql.*;
-import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
