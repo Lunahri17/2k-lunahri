@@ -1,0 +1,19 @@
+<h1>ENUNCIADO<\h1>
+Sistema: Videoclub / Biblioteca.
+
+Tiempo disponible: 60 minutos.
+
+Tabla minima: alquileres / prestamos
+
+Columnas: 
+dni, codigopelicula/codigolibro, 
+fechaalquiler/fechaprestamo,
+fechadevolucion (si no tiene fecha, el objeto no fue devuelto)
+
+Programar:
+VentanaRegistrarAlquiler(Alta)
+VentanaRegistrarDevolución(Modificación, para agregar fechadevolucion)
+VentanaListadoAlquileres
+
+Control: No se permite alquilar una pelicula o solicitar un libro, si tiene
+un prestamo anterior que no fué devuelto todavía.
