@@ -1,4 +1,3 @@
-<h1>ENUNCIADO<\h1>
 Sistema: Videoclub / Biblioteca.
 
 Tiempo disponible: 60 minutos.
